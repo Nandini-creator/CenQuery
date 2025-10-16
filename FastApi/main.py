@@ -9,6 +9,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 from typing import List, Dict, Any, Union
+from fastapi.middleware.cors import CORSMiddleware
 
 # --- Configuration ---
 load_dotenv()
@@ -29,6 +30,23 @@ app = FastAPI(
     title="Text-to-SQL API",
     description="An API with separate endpoints to generate SELECT queries, generate other SQL commands, and execute any SQL.",
     version="3.0.0"
+)
+
+# --- CORS Middleware ---
+# This is the new section to handle CORS errors.
+# It allows your frontend (e.g., running on localhost:3000) to communicate with the backend.
+origins = [
+    "http://localhost",
+    "http://localhost:3000", # Add the origin of your React app
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"], # Allows all methods
+    allow_headers=["*"], # Allows all headers
 )
 
 # --- Database Connection ---
