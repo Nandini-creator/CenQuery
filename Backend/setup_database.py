@@ -5,7 +5,6 @@ import json
 from dotenv import load_dotenv
 
 # --- Configuration ---
-# Default to a local PG instance if the environment variable is not set.
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 if not DATABASE_URL:
