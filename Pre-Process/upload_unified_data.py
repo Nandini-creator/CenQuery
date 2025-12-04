@@ -36,7 +36,7 @@ UPLOAD_SEQUENCE = [
     # --- 2. Data Tables (Facts) ---
     ("population_stats.csv", "population_stats", None),
     ("healthcare_stats.csv", "healthcare_stats", None),
-    ("pca_stats.csv", "pca_stats", None),
+    ("pca_stats.csv", "education_stats", None),
     ("religion_stats", "religion_stats", None), # Note: Filename check handles .csv extension
     ("religion_stats.csv", "religion_stats", None),
     ("occupation_stats.csv", "occupation_stats", None),
@@ -47,7 +47,7 @@ UPLOAD_SEQUENCE = [
 FOREIGN_KEYS = {
     "population_stats": [("state", "regions(state)"), ("tru_id", "tru(id)")],
     "healthcare_stats": [("state", "regions(state)"), ("tru_id", "tru(id)")],
-    "pca_stats":        [("state", "regions(state)"), ("tru_id", "tru(id)")],
+    "education_stats":        [("state", "regions(state)"), ("tru_id", "tru(id)")],
     "religion_stats":   [("state", "regions(state)"), ("tru_id", "tru(id)"), ("religion_id", "religions(id)")],
     "occupation_stats": [("state", "regions(state)"), ("tru_id", "tru(id)"), ("age_group_id", "age_groups(id)")],
     "language_stats":   [("state", "regions(state)"), ("tru_id", "tru(id)"), ("language_id", "languages(id)")],
@@ -60,7 +60,7 @@ def clean_database(engine):
     """
     print("\n🧹 Cleaning Database (dropping old tables)...")
     tables_to_drop = [
-        "population_stats", "healthcare_stats", "pca_stats", 
+        "population_stats", "healthcare_stats", "education_stats", 
         "religion_stats", "occupation_stats", "language_stats", "crop_stats",
         "regions", "tru", "religions", "languages", "age_groups"
     ]
