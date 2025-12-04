@@ -3,3 +3,5 @@ openpyxl
 xlrd
 sqlalchemy
 psycopg2-binary
+pdfplumber
+python-dotenv
