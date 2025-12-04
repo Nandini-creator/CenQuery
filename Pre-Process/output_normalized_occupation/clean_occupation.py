@@ -19,7 +19,6 @@ OCCUPATION_STATS_FILE = os.path.join(OUTPUT_DIR, "occupation_stats.csv")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def clean_text(text):
-    """Removes noise like '(01)' or 'State - ' from names."""
     if not isinstance(text, str): return text
     text = str(text).replace('State - ', '')
     text = re.sub(r'\s*\(\d+\)', '', text)
@@ -28,7 +27,6 @@ def clean_text(text):
 def process_occupation_data():
     print(f"📖 Reading: {INPUT_FILE}")
     
-    # 1. Load Data with Manual Header Mapping
     column_names = [
         "table_code", "state_code", "district_code", "area_name", "tru", "age_group",
         "population_total", "population_male", "population_female",
@@ -41,89 +39,69 @@ def process_occupation_data():
     ]
 
     try:
-        # Using read_excel for .xls files
         df = pd.read_excel(
             INPUT_FILE, 
             skiprows=9, 
             header=None, 
             names=column_names,
-            dtype={'state_code': str, 'district_code': str} # Keep codes as strings
+            dtype={'state_code': str, 'district_code': str} 
         )
     except Exception as e:
         print(f"❌ Error reading Excel file: {e}")
         return
 
-    # 2. Basic Cleaning
     df = df.dropna(subset=['state_code'])
     df['area_name'] = df['area_name'].apply(clean_text)
     df['age_group'] = df['age_group'].replace('Total', 'All Ages')
     
-    # ==========================================
-    # 🌟 STEP 1: EXTRACT DIMENSIONS (Lookups)
-    # ==========================================
-    
-    # --- A. TRU Lookup (Total/Rural/Urban) ---
+    # --- FIX 1: Standardize TRU ---
     print("✂️  Extracting TRU Lookup...")
-    unique_tru = df['tru'].unique()
-    tru_df = pd.DataFrame({
-        'id': range(1, len(unique_tru) + 1),
-        'name': unique_tru
-    })
+    tru_map = {
+        "Total": 1,
+        "Rural": 2,
+        "Urban": 3
+    }
+    tru_df = pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])
+    tru_df = tru_df[['id', 'name']]
     tru_df.to_csv(TRU_FILE, index=False)
     print(f"   ✅ Created '{TRU_FILE}'")
 
-    # Map TRU to ID in main dataframe
-    tru_map = dict(zip(tru_df['name'], tru_df['id']))
     df['tru_id'] = df['tru'].map(tru_map)
 
-    # --- B. Regions Lookup (State/District) ---
+    # Extract Regions (preserving state_code for now, will rename later)
     print("✂️  Extracting Regions Lookup...")
-    # We save this BEFORE dropping columns so the master regions table is complete
     regions_df = df[['state_code', 'district_code', 'area_name']].drop_duplicates()
     regions_df.to_csv(REGIONS_FILE, index=False)
     print(f"   ✅ Created '{REGIONS_FILE}'")
 
-    # --- C. Age Group Lookup ---
+    # Extract Age Groups
     print("✂️  Extracting Age Group Lookup...")
     unique_ages = df['age_group'].unique()
-    age_df = pd.DataFrame({
-        'id': range(1, len(unique_ages) + 1),
-        'name': unique_ages
-    })
+    age_df = pd.DataFrame({'id': range(1, len(unique_ages) + 1), 'name': unique_ages})
     age_df.to_csv(AGE_GROUPS_FILE, index=False)
     print(f"   ✅ Created '{AGE_GROUPS_FILE}'")
 
-    # Map Age Group to ID in main dataframe
-    age_map = dict(zip(age_df['name'], age_df['id']))
-    df['age_group_id'] = df['age_group'].map(age_map)
+    df['age_group_id'] = df['age_group'].map(dict(zip(age_df['name'], age_df['id'])))
 
-    # ==========================================
-    # 🌟 STEP 2: NORMALIZE & REORDER FACT TABLE
-    # ==========================================
-    
-    # 1. Drop redundant columns
-    # We remove district_code (as requested), area_name, tru, age_group, and table_code
+    # Cleanup columns
     cols_to_drop = ['area_name', 'tru', 'age_group', 'district_code', 'table_code']
     df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True)
 
-    # 2. Ensure numeric columns are integers
-    numeric_cols = [c for c in df.columns if 'total' in c or 'male' in c or 'female' in c]
+    # --- FIX 2: Rename state_code to state ---
+    df.rename(columns={'state_code': 'state'}, inplace=True)
+
+    # Ensure numeric
+    numeric_cols = [c for c in df.columns if 'total' in c or 'male' in c or 'female' in c or c == 'state']
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
 
-    # 3. Reorder Columns: State -> TRU -> Age -> Data
-    # Identify metric columns (everything that is not a key)
-    keys = ['state_code', 'tru_id', 'age_group_id']
+    # Reorder columns
+    keys = ['state', 'tru_id', 'age_group_id'] # 'state' is the new name
     metrics = [c for c in df.columns if c not in keys]
-    
-    # Apply new column order
     df = df[keys + metrics]
 
-    # Save the cleaned satellite table
     df.to_csv(OCCUPATION_STATS_FILE, index=False)
     print(f"   ✅ Created '{OCCUPATION_STATS_FILE}' (Fact Table)")
-    print(f"   Columns: {list(df.columns)}")
-    print(f"📊 Processed {len(df)} rows.")
 
 if __name__ == "__main__":
     if os.path.exists(INPUT_FILE):

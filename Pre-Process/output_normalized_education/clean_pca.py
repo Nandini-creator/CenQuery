@@ -35,30 +35,37 @@ def process_pca_data():
 
     # 1. Clean Column Names
     df.columns = [clean_column_name(c) for c in df.columns]
+    
+    # --- FIX: Standardize State Column Name ---
     if 'state_code' in df.columns:
         df.rename(columns={'state_code': 'state'}, inplace=True)
     
-    # 2. Extract TRU Lookup
+    # 2. Standardize TRU Lookup (Hardcoded)
     print("✂️  Extracting TRU Lookup...")
-    unique_tru = df['tru'].unique()
-    tru_df = pd.DataFrame({
-        'id': range(1, len(unique_tru) + 1),
-        'name': unique_tru
-    })
+    tru_map = {
+        "Total": 1,
+        "Rural": 2,
+        "Urban": 3
+    }
+    
+    # Create standardized lookup file
+    tru_df = pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])
+    tru_df = tru_df[['id', 'name']] # Reorder
     tru_df.to_csv(TRU_FILE, index=False)
-    print(f"   ✅ Created '{TRU_FILE}'")
+    print(f"   ✅ Created '{TRU_FILE}' (Standardized)")
 
-    # 3. Map TRU to ID
-    tru_map = dict(zip(tru_df['name'], tru_df['id']))
-    df['tru_id'] = df['tru'].map(tru_map)
+    # 3. Map TRU to ID using the standard map
+    # We title-case the input just in case (e.g. "rural" -> "Rural")
+    df['tru_clean'] = df['tru'].astype(str).str.title() 
+    df['tru_id'] = df['tru_clean'].map(tru_map)
 
     # 4. Drop Redundant Columns
     cols_to_drop = [
         'district_code', 'subdistt_code', 'townvillage_code',
         'state_code1', 'district_code1', 'subdistt_code1', 'townvillage_code1',
-        'ward_code', 'eb_code', 'level', 'name', 'tru' # Drop original text TRU
+        'ward_code', 'eb_code', 'level', 'name', 'tru', 'tru_clean' 
     ]
-    df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True)
+    df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True, errors='ignore')
 
     # 5. Clean State Code
     if 'state' in df.columns:
