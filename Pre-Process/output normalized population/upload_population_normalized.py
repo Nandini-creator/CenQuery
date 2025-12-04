@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import re
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 from sqlalchemy.pool import NullPool
@@ -9,8 +10,8 @@ load_dotenv()
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-REGIONS_FILE = "output_normalized/regions.csv"
-STATS_FILE = "output_normalized/population_stats.csv"
+REGIONS_FILE = "regions.csv"
+STATS_FILE = "population_stats.csv"
 
 # Fetch variables
 USER = os.getenv("user")
@@ -21,6 +22,17 @@ DBNAME = os.getenv("dbname")
 
 # Construct Connection String
 DB_CONNECTION_STRING = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+
+def clean_area_name(name):
+    """
+    Cleans 'State - JAMMU & KASHMIR (01)' -> 'JAMMU & KASHMIR'
+    """
+    if not isinstance(name, str): return name
+    # 1. Remove 'State - ' prefix
+    name = re.sub(r'^State - ', '', name, flags=re.IGNORECASE)
+    # 2. Remove ' (XX)' suffix (space + parens + digits)
+    name = re.sub(r'\s\(\d+\)$', '', name)
+    return name.strip()
 
 def enable_rls(table_name, engine):
     """Secures the table with RLS."""
@@ -35,7 +47,7 @@ def enable_rls(table_name, engine):
         print(f"     ⚠️ Error applying security: {e}")
 
 def upload_regions(engine):
-    """Uploads regions and sets the Primary Key."""
+    """Uploads regions after cleaning the names."""
     if not os.path.exists(REGIONS_FILE):
         print(f"❌ Error: {REGIONS_FILE} not found.")
         return False
@@ -43,12 +55,17 @@ def upload_regions(engine):
     print(f"\n🚀 Processing PARENT table: 'regions'...")
     df = pd.read_csv(REGIONS_FILE)
     
+    # --- CLEANING STEP ---
+    print("     🧹 Cleaning Area Names...")
+    df['area_name'] = df['area_name'].apply(clean_area_name)
+    # ---------------------
+    
     try:
         # 1. Upload Data
         df.to_sql('regions', engine, if_exists='replace', index=False, chunksize=1000)
         print(f"     ✅ Data uploaded ({len(df)} rows).")
         
-        # 2. Add Primary Key Constraint (Crucial for Foreign Keys to work)
+        # 2. Add Primary Key Constraint
         with engine.begin() as conn:
             conn.execute(text("ALTER TABLE regions ADD PRIMARY KEY (state);"))
         print(f"     ✅ Primary Key (state) enforced.")
@@ -75,7 +92,6 @@ def upload_stats(engine):
         print(f"     ✅ Data uploaded ({len(df)} rows).")
         
         # 2. Add Foreign Key Constraint
-        # This ensures 'state' in this table actually exists in the 'regions' table
         with engine.begin() as conn:
             conn.execute(text("""
                 ALTER TABLE population_stats 
@@ -106,11 +122,11 @@ if __name__ == "__main__":
         print(f"❌ FATAL: Connection failed. {e}")
         exit()
 
-    # 1. Upload Parent Table FIRST
+    # 1. Upload Parent Table FIRST (Regions)
     success = upload_regions(engine)
     
-    # 2. Upload Child Table SECOND (Only if parent succeeded)
+    # 2. Upload Child Table SECOND (Stats)
     if success:
         upload_stats(engine)
     else:
-        print("\n⚠️ Skipping 'population_stats' because 'regions' failed.")
+        print("\n ⚠️ Skipping 'population_stats' because 'regions' failed.")
