@@ -1167,12 +1167,14 @@
             }
         ]
     },
-    "pca_stats": {
+    "education_stats": {
         "columns": [
             {
                 "name": "state",
                 "type": "BIGINT",
-                "constraints": []
+                "constraints": [
+                    "FK -> regions(state)"
+                ]
             },
             {
                 "name": "no_of_households",
@@ -1602,11 +1604,22 @@
             {
                 "name": "tru_id",
                 "type": "BIGINT",
-                "constraints": []
+                "constraints": [
+                    "FK -> tru(id)"
+                ]
             }
         ],
         "primary_key": [],
-        "foreign_keys": []
+        "foreign_keys": [
+            {
+                "column": "state",
+                "references": "regions(state)"
+            },
+            {
+                "column": "tru_id",
+                "references": "tru(id)"
+            }
+        ]
     },
     "religion_stats": {
         "columns": [

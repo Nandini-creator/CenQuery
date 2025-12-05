@@ -27,7 +27,7 @@ TARGET_TABLES = [
     # Masters
     "regions", "tru", "religions", "languages", "age_groups",
     # Data
-    "population_stats", "healthcare_stats", "pca_stats", 
+    "population_stats", "healthcare_stats", "education_stats", 
     "religion_stats", "occupation_stats", "language_stats", "crop_stats"
 ]
 
