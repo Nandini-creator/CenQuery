@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/education.xls"
-OUTPUT_DIR = "output_normalized_education"
+INPUT_FILE = "../input/education.xls"
+OUTPUT_DIR = "../output_normalized_education"
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
 # FIX: Renamed output file
 PCA_STATS_FILE = os.path.join(OUTPUT_DIR, "education_stats.csv")

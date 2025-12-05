@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/religion.xlsx"
-OUTPUT_DIR = "output_normalized_religion"
+INPUT_FILE = "../input/religion.xlsx"
+OUTPUT_DIR = "../output_normalized_religion"
 RELIGIONS_FILE = os.path.join(OUTPUT_DIR, "religions.csv")
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
 STATS_FILE = os.path.join(OUTPUT_DIR, "religion_stats.csv")

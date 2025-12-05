@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/Occupation.xls"
-OUTPUT_DIR = "output_normalized_occupation"
+INPUT_FILE = "../input/Occupation.xls"
+OUTPUT_DIR = "../output_normalized_occupation"
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
 REGIONS_FILE = os.path.join(OUTPUT_DIR, "regions.csv")
 AGE_GROUPS_FILE = os.path.join(OUTPUT_DIR, "age_groups.csv")

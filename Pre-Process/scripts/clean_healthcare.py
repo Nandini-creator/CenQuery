@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/Healthcare.xls"
-OUTPUT_DIR = "output_normalized_healthcare"
+INPUT_FILE = "../input/Healthcare.xls"
+OUTPUT_DIR = "../output_normalized_healthcare"
 
 # Master Files
 REGIONS_FILE = os.path.join(OUTPUT_DIR, "regions.csv")

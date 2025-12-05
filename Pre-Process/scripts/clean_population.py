@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/population.xls"
-OUTPUT_DIR = "output_normalized_population"
+INPUT_FILE = "../input/population.xls"
+OUTPUT_DIR = "../output_normalized_population"
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "population_stats.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)

@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_FILE = "input/Language.xlsx"
-OUTPUT_DIR = "output_normalized_language"
+INPUT_FILE = "../input/Language.xlsx"
+OUTPUT_DIR = "../output_normalized_language"
 LANGUAGES_FILE = os.path.join(OUTPUT_DIR, "languages.csv")
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
 LANGUAGE_STATS_FILE = os.path.join(OUTPUT_DIR, "language_stats.csv")

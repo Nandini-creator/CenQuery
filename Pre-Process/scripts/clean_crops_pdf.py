@@ -5,8 +5,8 @@ import os
 # ==========================================
 # 🔧 CONFIGURATION
 # ==========================================
-INPUT_PDF = "input/Crops.pdf"
-OUTPUT_DIR = "output_normalized_crops"
+INPUT_PDF = "../input/Crops.pdf"
+OUTPUT_DIR = "../output_normalized_crops"
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "crops.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
