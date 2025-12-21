@@ -61,7 +61,7 @@ def verify_queries():
 
                 except Exception as q_err:
                     print(f"❌ Query #{index} Failed: {q_err}")
-                
+                    conn.rollback()
                 print("-" * 50)
 
     except Exception as e:
