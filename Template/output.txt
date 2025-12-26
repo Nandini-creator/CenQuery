@@ -1,3 +1,4 @@
+📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenSQL\Template\output.txt
 🚀 Connecting to Database...
 📋 Found 150 queries. Starting verification...
 
@@ -89,6 +90,7 @@ Madhya Pradesh 49353587
 --------------------------------------------------
 🔹 Running Query #16...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.male, ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Urdu' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #17...
 ✅ Success! Returned 1 rows.
@@ -261,6 +263,7 @@ Telugu 70662838
 --------------------------------------------------
 🔹 Running Query #47...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND rel.religion_name = 'Zoroastrian' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #48...
 ✅ Success! Returned 2 rows.
@@ -374,6 +377,7 @@ Himachal Pradesh  79896
 --------------------------------------------------
 🔹 Running Query #67...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Telugu' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #68...
 ✅ Success! Returned 1 rows.
@@ -487,6 +491,7 @@ area_name   tot_m
 --------------------------------------------------
 🔹 Running Query #88...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Jharkhand' AND l.name = 'Santhali' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #89...
 ✅ Success! Returned 1 rows.
@@ -547,6 +552,7 @@ Urban  36293733
 --------------------------------------------------
 🔹 Running Query #99...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE rel.religion_name = 'Zoroastrian' AND t.name = 'Total' ORDER BY rs.tot_p DESC LIMIT 1;
 --------------------------------------------------
 🔹 Running Query #100...
 ✅ Success! Returned 2 rows.
@@ -573,6 +579,7 @@ Tamil Nadu 4418331
 --------------------------------------------------
 🔹 Running Query #104...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Mizoram' AND l.name = 'Mizo' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #105...
 ✅ Success! Returned 1 rows.
@@ -581,6 +588,7 @@ Tamil Nadu 4418331
 --------------------------------------------------
 🔹 Running Query #106...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Tripura' AND l.name = 'Kokborok' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #107...
 ✅ Success! Returned 3 rows.
@@ -658,6 +666,7 @@ area_name  tot_work_p
 --------------------------------------------------
 🔹 Running Query #120...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT t.name, ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Gujarat' AND l.name = 'Jain' AND t.name IN ('Rural', 'Urban') ORDER BY ls.person DESC;
 --------------------------------------------------
 🔹 Running Query #121...
 ✅ Success! Returned 2 rows.
@@ -760,6 +769,7 @@ area_name   tot_f
 --------------------------------------------------
 🔹 Running Query #139...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Arunachal Pradesh' AND l.name = 'Nishi' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #140...
 ✅ Success! Returned 3 rows.
@@ -799,6 +809,7 @@ Madhya Pradesh  567028
 --------------------------------------------------
 🔹 Running Query #146...
 ⚠️  Query ran successfully but returned NO data.
+Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Ladakh' AND rel.religion_name = 'Buddhist' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #147...
 ✅ Success! Returned 2 rows.
