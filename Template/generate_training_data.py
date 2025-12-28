@@ -104,7 +104,7 @@ def main():
     member_name = input("Enter your name (e.g., Member3): ").strip().replace(" ", "_")
     if not member_name: member_name = "Member_Unknown"
     
-    base_filename = f"train_{member_name}_final.jsonl"
+    base_filename = f"train_{member_name}.jsonl"
 
     # Load Data
     schema_string = load_schema_string(SCHEMA_FILE)
