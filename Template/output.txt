@@ -1,835 +1,1188 @@
 📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenSQL\Template\output.txt
 🚀 Connecting to Database...
-📋 Found 150 queries. Starting verification...
+📋 Found 148 queries. Starting verification...
 
 🔹 Running Query #1...
-✅ Success! Returned 1 rows.
-  tot_p
-8873472
+❌ Query #1 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats...
+                           ^
+
+[SQL: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.vaccination_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #2...
-✅ Success! Returned 2 rows.
-   person
-187979055
-160159977
+❌ Query #2 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT t.name,hs.anaemia_female FROM healthcare_stats hs JOI...
+                      ^
+
+[SQL: SELECT t.name,hs.anaemia_female FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name IN('Rural','Urban') ORDER BY hs.anaemia_female DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #3...
-✅ Success! Returned 2 rows.
-area_type  tot_p
-    Rural 134947
-    Urban 231183
+❌ Query #3 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_mortality_rate does not exist
+LINE 1: SELECT r.area_name,hs.infant_mortality_rate FROM healthcare_...
+                           ^
+
+[SQL: SELECT r.area_name,hs.infant_mortality_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.infant_mortality_rate ASC LIMIT 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #4...
-✅ Success! Returned 3 rows.
-   name   person
-Kannada 40651090
-Kannada 40622836
-   Urdu  6618324
+❌ Query #4 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_mortality_rate does not exist
+LINE 1: SELECT t.name,hs.maternal_mortality_rate FROM healthcare_sta...
+                      ^
+
+[SQL: SELECT t.name,hs.maternal_mortality_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name IN('Rural','Urban') ORDER BY hs.maternal_mortality_rate DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #5...
-✅ Success! Returned 1 rows.
-religion_name       literacy_rate
-         Jain 86.4286720309954303
+❌ Query #5 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabetes_p>hs.asthma_p;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #6...
-✅ Success! Returned 2 rows.
-  female
-31835443
-31830308
+❌ Query #6 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_male does not exist
+LINE 1: SELECT r.area_name,ABS(hs.anaemia_male-hs.anaemia_female) AS...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.anaemia_male-hs.anaemia_female) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY gap DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #7...
-✅ Success! Returned 1 rows.
- non_work_p
-     885475
+❌ Query #7 Failed: (psycopg2.errors.UndefinedColumn) column hs.cancer_p does not exist
+LINE 1: SELECT r.area_name,hs.cancer_p FROM healthcare_stats hs JOIN...
+                           ^
+
+[SQL: SELECT r.area_name,hs.cancer_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.cancer_p DESC LIMIT 3;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #8...
-✅ Success! Returned 2 rows.
-  person
-56188667
-55684784
+❌ Query #8 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: SELECT t.name,SUM(hs.obesity_p) FROM healthcare_stats hs JOI...
+                          ^
+
+[SQL: SELECT t.name,SUM(hs.obesity_p) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name IN('Urban','Rural') GROUP BY t.name ORDER BY SUM(hs.obesity_p) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #9...
-✅ Success! Returned 2 rows.
-area_name    tot_p
-   Punjab 16004754
-  Haryana  1243752
+❌ Query #9 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats...
+                           ^
+
+[SQL: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.vaccination_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #10...
-✅ Success! Returned 1 rows.
- literacy_gap
-     90728690
+❌ Query #10 Failed: (psycopg2.errors.UndefinedColumn) column hs.hypertension_p does not exist
+LINE 1: SELECT r.area_name,hs.hypertension_p FROM healthcare_stats h...
+                           ^
+
+[SQL: SELECT r.area_name,hs.hypertension_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.hypertension_p DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #11...
-✅ Success! Returned 2 rows.
-  person
-77461172
-77357905
+❌ Query #11 Failed: (psycopg2.errors.UndefinedColumn) column hs.hypertension_p does not exist
+LINE 1: SELECT hs.hypertension_p FROM healthcare_stats hs JOIN regio...
+               ^
+
+[SQL: SELECT hs.hypertension_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Uttar Pradesh' AND t.name='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #12...
-✅ Success! Returned 1 rows.
- tot_p
-167216
+❌ Query #12 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT hs.anaemia_female FROM healthcare_stats hs JOIN regio...
+               ^
+
+[SQL: SELECT hs.anaemia_female FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Kerala' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #13...
-✅ Success! Returned 4 rows.
-     area_name   person
-Madhya Pradesh 64324963
-     Rajasthan 61274274
-Madhya Pradesh 49353587
-     Rajasthan 18742450
+❌ Query #13 Failed: (psycopg2.errors.UndefinedColumn) column hs.fully_vaccinated_children does not exist
+LINE 1: SELECT hs.fully_vaccinated_children FROM healthcare_stats hs...
+               ^
+
+[SQL: SELECT hs.fully_vaccinated_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Maharashtra' AND t.name='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #14...
-✅ Success! Returned 1 rows.
- tot_p
-535536
+❌ Query #14 Failed: (psycopg2.errors.UndefinedColumn) column hs.asthma_p does not exist
+LINE 1: SELECT hs.asthma_p FROM healthcare_stats hs JOIN regions r O...
+               ^
+
+[SQL: SELECT hs.asthma_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Andhra Pradesh' AND t.name='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #15...
-✅ Success! Returned 1 rows.
-      literacy_rate
-87.9012627520468489
+❌ Query #15 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT hs.infant_deaths FROM healthcare_stats hs JOIN region...
+               ^
+
+[SQL: SELECT hs.infant_deaths FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Madhya Pradesh' AND t.name='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #16...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.male, ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Urdu' AND t.name = 'Total';
+❌ Query #16 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: SELECT hs.obesity_p FROM healthcare_stats hs JOIN regions r ...
+               ^
+
+[SQL: SELECT hs.obesity_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Rajasthan' AND t.name='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #17...
-✅ Success! Returned 1 rows.
- tot_work_p
-    5721400
+❌ Query #17 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT hs.unvaccinated_children FROM healthcare_stats hs JOI...
+               ^
+
+[SQL: SELECT hs.unvaccinated_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Odisha' AND t.name='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #18...
-✅ Success! Returned 3 rows.
-  area_name  person
-      India  259678
-      India  259678
-Maharashtra  106656
+❌ Query #18 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT hs.diabetes_p FROM healthcare_stats hs JOIN regions r...
+               ^
+
+[SQL: SELECT hs.diabetes_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Punjab' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #19...
-✅ Success! Returned 1 rows.
-  tot_p
-3412078
+❌ Query #19 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_deaths does not exist
+LINE 1: SELECT hs.maternal_deaths FROM healthcare_stats hs JOIN regi...
+               ^
+
+[SQL: SELECT hs.maternal_deaths FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Gujarat' AND t.name='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #20...
-✅ Success! Returned 1 rows.
- name   person
-Tamil 63743847
+❌ Query #20 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT hs.underweight_children FROM healthcare_stats hs JOIN...
+               ^
+
+[SQL: SELECT hs.underweight_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Bihar' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #21...
-✅ Success! Returned 1 rows.
-   tot_m    tot_f
-19867314 18616653
+❌ Query #21 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT hs.diabetes_p FROM healthcare_stats hs JOIN regions r...
+               ^
+
+[SQL: SELECT hs.diabetes_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Kerala' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #22...
-✅ Success! Returned 2 rows.
- person
-3569400
-3565618
+❌ Query #22 Failed: (psycopg2.errors.UndefinedColumn) column hs.hypertension_p does not exist
+LINE 1: SELECT t.name,hs.hypertension_p FROM healthcare_stats hs JOI...
+                      ^
+
+[SQL: SELECT t.name,hs.hypertension_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Tamil Nadu' AND t.name IN('Urban','Rural') ORDER BY hs.hypertension_p DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #23...
-✅ Success! Returned 1 rows.
-   tot_p
-19180759
+❌ Query #23 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_mortality_rate does not exist
+LINE 1: SELECT r.area_name,hs.infant_mortality_rate FROM healthcare_...
+                           ^
+
+[SQL: SELECT r.area_name,hs.infant_mortality_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.infant_mortality_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #24...
-✅ Success! Returned 1 rows.
- lit_gap
-  457850
+❌ Query #24 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT hs.anaemia_female FROM healthcare_stats hs JOIN regio...
+               ^
+
+[SQL: SELECT hs.anaemia_female FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Maharashtra' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #25...
-✅ Success! Returned 2 rows.
-  person
-19498567
-19480141
+❌ Query #25 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,hs.underweight_children FROM healthcare_s...
+                           ^
+
+[SQL: SELECT r.area_name,hs.underweight_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.underweight_children DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #26...
-✅ Success! Returned 1 rows.
- tot_p
-  1473
+❌ Query #26 Failed: (psycopg2.errors.UndefinedColumn) column hs.fully_vaccinated_children does not exist
+LINE 1: SELECT hs.fully_vaccinated_children FROM healthcare_stats hs...
+               ^
+
+[SQL: SELECT hs.fully_vaccinated_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='Bihar' AND t.name='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #27...
-✅ Success! Returned 1 rows.
- non_work_p
-   12201625
+❌ Query #27 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_mortality_rate does not exist
+LINE 1: SELECT r.area_name,hs.maternal_mortality_rate FROM healthcar...
+                           ^
+
+[SQL: SELECT r.area_name,hs.maternal_mortality_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.maternal_mortality_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #28...
-✅ Success! Returned 2 rows.
- person
-  88662
-  87718
+❌ Query #28 Failed: (psycopg2.errors.UndefinedColumn) column hs.asthma_p does not exist
+LINE 1: SELECT hs.asthma_p FROM healthcare_stats hs JOIN regions r O...
+               ^
+
+[SQL: SELECT hs.asthma_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='NCT of Delhi' AND t.name='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #29...
-✅ Success! Returned 4 rows.
-   name   person
-Kannada 40651090
-Kannada 40622836
- Telugu  3569400
- Telugu  3565618
+❌ Query #29 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: SELECT t.name,SUM(hs.obesity_p) FROM healthcare_stats hs JOI...
+                          ^
+
+[SQL: SELECT t.name,SUM(hs.obesity_p) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name IN('Urban','Rural') GROUP BY t.name ORDER BY SUM(hs.obesity_p) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #30...
-✅ Success! Returned 1 rows.
-area_name    tot_p
-    India 27819588
+❌ Query #30 Failed: (psycopg2.errors.UndefinedColumn) column hs.cancer_p does not exist
+LINE 1: SELECT r.area_name,hs.cancer_p FROM healthcare_stats hs JOIN...
+                           ^
+
+[SQL: SELECT r.area_name,hs.cancer_p FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.cancer_p DESC LIMIT 3;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #31...
-✅ Success! Returned 1 rows.
-area_name   person
-    India 50772631
+❌ Query #31 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.unvacci...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.unvaccinated_children>hs.fully_vaccinated_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #32...
-✅ Success! Returned 1 rows.
- tot_p
-166322
+❌ Query #32 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT r.area_name,(hs.anaemia_female*100.0/NULLIF(hs.anaemi...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.anaemia_female*100.0/NULLIF(hs.anaemia_male+hs.anaemia_female,0)) AS female_share FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY female_share DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #33...
-✅ Success! Returned 1 rows.
-female_literacy_rate
- 41.9595079738554508
+❌ Query #33 Failed: (psycopg2.errors.UndefinedColumn) column hs.asthma_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.asthma_...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.asthma_p<hs.cancer_p;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #34...
-✅ Success! Returned 2 rows.
- person
-2414774
-2330452
+❌ Query #34 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: ...r.area_name,ABS(MAX(CASE WHEN t.name='Urban' THEN hs.obesity...
+                                                             ^
+
+[SQL: SELECT r.area_name,ABS(MAX(CASE WHEN t.name='Urban' THEN hs.obesity_p END)-MAX(CASE WHEN t.name='Rural' THEN hs.obesity_p END)) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY gap DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #35...
-✅ Success! Returned 2 rows.
-area_name   tot_p
- Nagaland 1739651
-  Mizoram  956331
+❌ Query #35 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT t.name,SUM(hs.unvaccinated_children) FROM healthcare_...
+                          ^
+
+[SQL: SELECT t.name,SUM(hs.unvaccinated_children) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name IN('Urban','Rural') GROUP BY t.name ORDER BY SUM(hs.unvaccinated_children) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #36...
-✅ Success! Returned 2 rows.
- male
-51200
-51200
+❌ Query #36 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_mortality_rate does not exist
+LINE 1: SELECT r.area_name,hs.maternal_mortality_rate FROM healthcar...
+                           ^
+
+[SQL: SELECT r.area_name,hs.maternal_mortality_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.maternal_mortality_rate ASC LIMIT 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #37...
-✅ Success! Returned 1 rows.
- tot_p
-570581
+❌ Query #37 Failed: (psycopg2.errors.UndefinedColumn) column hs.hypertension_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.hyperte...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.hypertension_p>hs.diabetes_p;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #38...
-✅ Success! Returned 1 rows.
-   p_ill
-41710498
+❌ Query #38 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,hs.underweight_children FROM healthcare_s...
+                           ^
+
+[SQL: SELECT r.area_name,hs.underweight_children FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.underweight_children ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #39...
-✅ Success! Returned 2 rows.
-  person
-11610128
-11603571
+❌ Query #39 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccinated_male does not exist
+LINE 1: SELECT r.area_name,ABS(hs.vaccinated_male-hs.vaccinated_fema...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.vaccinated_male-hs.vaccinated_female) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY gap DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #40...
-✅ Success! Returned 3 rows.
-  area_name   tot_p
-      India 8442972
-Maharashtra 6531200
-West Bengal  282898
+❌ Query #40 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p) AS burden FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY burden DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #41...
-✅ Success! Returned 2 rows.
-  female
-16921247
-16910907
+❌ Query #41 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1.0/NULLIF(hs.tot_p,0) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #42...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    34.1548578979874201
+❌ Query #42 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT t.name,SUM(hs.infant_deaths) FROM healthcare_stats hs...
+                          ^
+
+[SQL: SELECT t.name,SUM(hs.infant_deaths) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name IN('Urban','Rural') GROUP BY t.name ORDER BY SUM(hs.infant_deaths) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #43...
-✅ Success! Returned 2 rows.
- person
-2400883
-1865482
+❌ Query #43 Failed: (psycopg2.errors.UndefinedColumn) column hs.live_births does not exist
+LINE 1: SELECT r.area_name,(hs.live_births-hs.maternal_deaths) AS sa...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.live_births-hs.maternal_deaths) AS safe_births FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY safe_births DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #44...
-✅ Success! Returned 1 rows.
-   tot_p
-19146627
+❌ Query #44 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ...rea_name HAVING MAX(CASE WHEN t.name='Rural' THEN hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name HAVING MAX(CASE WHEN t.name='Rural' THEN hs.vaccination_rate END)>MAX(CASE WHEN t.name='Urban' THEN hs.vaccination_rate END);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #45...
-✅ Success! Returned 4 rows.
-  name   person
-Telugu 70667780
-Telugu 70662838
-  Urdu  7505623
-  Urdu  7504151
+❌ Query #45 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: SELECT r.area_name,hs.elderly_with_illness FROM healthcare_s...
+                           ^
+
+[SQL: SELECT r.area_name,hs.elderly_with_illness FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.elderly_with_illness DESC LIMIT 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #46...
-✅ Success! Returned 1 rows.
-  tot_m
-2171413
+❌ Query #46 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.anaemia...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.anaemia_female+hs.obesity_female)>(hs.anaemia_male+hs.obesity_male);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #47...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND rel.religion_name = 'Zoroastrian' AND t.name = 'Total';
+❌ Query #47 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,(hs.underweight_children*100.0/NULLIF(hs....
+                            ^
+
+[SQL: SELECT r.area_name,(hs.underweight_children*100.0/NULLIF(hs.total_children,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #48...
-✅ Success! Returned 2 rows.
-  person
-46244040
-33235355
+❌ Query #48 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabetes_p>hs.fully_vaccinated_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #49...
-✅ Success! Returned 1 rows.
-area_name       literacy_rate
-  Mizoram 38.4044705655650833
+❌ Query #49 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT t.name,SUM(hs.underweight_children) FROM healthcare_s...
+                          ^
+
+[SQL: SELECT t.name,SUM(hs.underweight_children) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name IN('Urban','Rural') GROUP BY t.name ORDER BY SUM(hs.underweight_children) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #50...
-✅ Success! Returned 2 rows.
- person
- 531077
- 529531
+❌ Query #50 Failed: (psycopg2.errors.UndefinedColumn) column hs.live_births does not exist
+LINE 1: SELECT r.area_name,(hs.live_births-hs.infant_deaths) AS gap ...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.live_births-hs.infant_deaths) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY gap DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #51...
-✅ Success! Returned 1 rows.
-           sex_ratio
-906.2816787971409980
+❌ Query #51 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT r.area_name,(hs.anaemia_female+hs.obesity_female+hs.d...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.anaemia_female+hs.obesity_female+hs.diabetes_female) AS burden FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY burden DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #52...
-✅ Success! Returned 1 rows.
- tot_work_p
-     196127
+❌ Query #52 Failed: (psycopg2.errors.UndefinedColumn) column hs.asthma_p does not exist
+LINE 1: SELECT r.area_name,(hs.asthma_p*1.0/NULLIF(hs.tot_p,0)) AS r...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.asthma_p*1.0/NULLIF(hs.tot_p,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #53...
-✅ Success! Returned 4 rows.
-    area_name   female
-Uttar Pradesh 89646220
-Uttar Pradesh 75974328
-        Bihar 38586200
-        Bihar 12583592
+❌ Query #53 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.unvacci...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.unvaccinated_children>hs.underweight_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #54...
-✅ Success! Returned 2 rows.
- person
- 964305
- 963980
+❌ Query #54 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_male does not exist
+LINE 1: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_mal...
+                                ^
+
+[SQL: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_male)-(hs.diabetes_female+hs.hypertension_female)) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY gap ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #55...
-✅ Success! Returned 1 rows.
-  tot_p
-8567485
+❌ Query #55 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: ...rea_name HAVING MAX(CASE WHEN t.name='Urban' THEN hs.obesity...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name HAVING MAX(CASE WHEN t.name='Urban' THEN hs.obesity_p END)>MAX(CASE WHEN t.name='Rural' THEN hs.obesity_p END);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #56...
-✅ Success! Returned 1 rows.
- f_lit
-677597
+❌ Query #56 Failed: (psycopg2.errors.UndefinedColumn) column hs.live_births does not exist
+LINE 1: SELECT r.area_name,(hs.live_births-hs.infant_deaths)*100.0/N...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.live_births-hs.infant_deaths)*100.0/NULLIF(hs.live_births,0) AS survival FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY survival DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #57...
-✅ Success! Returned 5 rows.
-  area_name   person
-      India 83026680
-      India 82801140
-Maharashtra 77461172
-Maharashtra 77357905
-  Karnataka  2064906
+❌ Query #57 Failed: (psycopg2.errors.UndefinedColumn) column hs.live_births does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.live_bi...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.live_births>1000000 AND hs.maternal_deaths<500;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #58...
-✅ Success! Returned 2 rows.
- person
-  82613
-  82559
+❌ Query #58 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p) AS load FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY load ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #59...
-✅ Success! Returned 1 rows.
-  tot_m
-3314906
+❌ Query #59 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children<(hs.diabetes_p+hs.hypertension_p);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #60...
-✅ Success! Returned 1 rows.
-           lit_gap
-4.2948128497337484
+❌ Query #60 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabetes_p END)-SUM(CASE WHEN t.name='Rural' THEN hs.diabetes_p END)) AS diff FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY diff ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #61...
-✅ Success! Returned 2 rows.
-  person
-15095797
-14609227
+❌ Query #61 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_children) AS risk FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY risk DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #62...
-✅ Success! Returned 1 rows.
-religion_name       non_work_rate
-       Muslim 75.4699513335929837
+❌ Query #62 Failed: (psycopg2.errors.UndefinedColumn) column hs.tot_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.tot_p-(...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.tot_p-(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p))>(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #63...
-✅ Success! Returned 2 rows.
- person
-6618324
-6617850
+❌ Query #63 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats...
+                           ^
+
+[SQL: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate>95 ORDER BY hs.vaccination_rate DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #64...
-✅ Success! Returned 1 rows.
-   tot_p
-23053946
+❌ Query #64 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabetes_p>500000 AND hs.obesity_p<200000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #65...
-✅ Success! Returned 2 rows.
- person
- 123648
- 123176
+❌ Query #65 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT r.area_name,(hs.infant_deaths*1.0/NULLIF(hs.live_birt...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.infant_deaths*1.0/NULLIF(hs.live_births,0)) AS ratio FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY ratio ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #66...
-✅ Success! Returned 2 rows.
-       area_name  tot_p
-       Rajasthan 872930
-Himachal Pradesh  79896
+❌ Query #66 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT CASE WHEN SUM(hs.anaemia_female+hs.obesity_female)>SU...
+                             ^
+
+[SQL: SELECT CASE WHEN SUM(hs.anaemia_female+hs.obesity_female)>SUM(hs.anaemia_male+hs.obesity_male) THEN 'Women' ELSE 'Men' END FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE r.area_name='India' AND t.name='Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #67...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Telugu' AND t.name = 'Total';
+❌ Query #67 Failed: (psycopg2.errors.UndefinedColumn) column hs.tot_p does not exist
+LINE 1: SELECT r.area_name,(hs.tot_p-(hs.diabetes_p+hs.hypertension_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.tot_p-(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)) AS healthy FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY healthy ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #68...
-✅ Success! Returned 1 rows.
-      literacy_rate
-77.3031682291201470
+❌ Query #68 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...rea_name HAVING SUM(CASE WHEN t.name='Rural' THEN hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name HAVING SUM(CASE WHEN t.name='Rural' THEN hs.diabetes_p+hs.hypertension_p END)>SUM(CASE WHEN t.name='Urban' THEN hs.diabetes_p+hs.hypertension_p END);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #69...
-✅ Success! Returned 2 rows.
- person
-1184024
- 321031
+❌ Query #69 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: SELECT r.area_name,(hs.elderly_with_illness*100.0/NULLIF(hs....
+                            ^
+
+[SQL: SELECT r.area_name,(hs.elderly_with_illness*100.0/NULLIF(hs.elderly_population,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #70...
-✅ Success! Returned 1 rows.
-area_name  person
-    India   24821
+❌ Query #70 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_deaths does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.materna...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.maternal_deaths>hs.infant_deaths;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #71...
-✅ Success! Returned 2 rows.
- person
- 382200
- 382171
+❌ Query #71 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(100.0*(hs.diabetes_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(100.0*(hs.diabetes_p+hs.hypertension_p)/NULLIF(hs.tot_p,0))) AS drop FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY drop DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #72...
-✅ Success! Returned 1 rows.
-  tot_p
-2213027
+❌ Query #72 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asth...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1000.0/NULLIF(hs.tot_p,0)) AS density FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY density DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #73...
-✅ Success! Returned 1 rows.
- tot_m  tot_f
- 80988  81827
+❌ Query #73 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_mortality_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.materna...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.maternal_mortality_rate<(hs.underweight_children*1.0/NULLIF(hs.total_children,0));]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #74...
-✅ Success! Returned 2 rows.
- person
-2513712
-2513712
+❌ Query #74 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_male does not exist
+LINE 1: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_mal...
+                                ^
+
+[SQL: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_male+hs.obesity_male)-(hs.diabetes_female+hs.hypertension_female+hs.obesity_female)) AS imbalance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY imbalance DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #75...
-✅ Success! Returned 1 rows.
-      literacy_rate
-87.5457649357703676
+❌ Query #75 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate>85 AND hs.infant_mortality_rate>30;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #76...
-✅ Success! Returned 2 rows.
- person
-4999581
-4998899
+❌ Query #76 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asth...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1.0/NULLIF(hs.tot_p,0)) AS load FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY load ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #77...
-✅ Success! Returned 1 rows.
-area_name   person
-    India 13583464
+❌ Query #77 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children>hs.elderly_with_illness;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #78...
-✅ Success! Returned 1 rows.
- tot_p
-912937
+❌ Query #78 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...CT r.area_name,(SUM(CASE WHEN t.name='Urban' THEN hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name,(SUM(CASE WHEN t.name='Urban' THEN hs.diabetes_p+hs.hypertension_p END)-SUM(CASE WHEN t.name='Rural' THEN hs.diabetes_p+hs.hypertension_p END)) AS advantage FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY advantage ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #79...
-✅ Success! Returned 1 rows.
-            sex_ratio
-1124.7438195225147890
+❌ Query #79 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate)) AS score FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY score DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #80...
-✅ Success! Returned 2 rows.
- person
- 788294
- 764196
+❌ Query #80 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)>(hs.tot_p-(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p));]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #81...
-✅ Success! Returned 1 rows.
- tot_f
-687192
+❌ Query #81 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT r.area_name,(hs.infant_deaths*10000.0/NULLIF(hs.live_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.infant_deaths*10000.0/NULLIF(hs.live_births,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #82...
-✅ Success! Returned 4 rows.
- area_name  person
-Tamil Nadu   24495
-Tamil Nadu   24495
- Karnataka   23227
- Karnataka   23227
+❌ Query #82 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly_with_illness>hs.underweight_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #83...
-✅ Success! Returned 2 rows.
- person
-1522132
-1522132
+❌ Query #83 Failed: (psycopg2.errors.UndefinedColumn) column hs.live_births does not exist
+LINE 1: SELECT r.area_name,ABS(hs.live_births-(hs.infant_deaths+hs.m...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.live_births-(hs.infant_deaths+hs.maternal_deaths)) AS imbalance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY imbalance DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #84...
-✅ Success! Returned 1 rows.
-            lit_gap
-22.9054289383694396
+❌ Query #84 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.diabetes_p>hs.hypertension_p AND hs.diabetes_p>hs.asthma_p AND hs.diabetes_p>hs.cancer_p;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #85...
-✅ Success! Returned 1 rows.
- tot_p
- 78659
+❌ Query #85 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats...
+                           ^
+
+[SQL: SELECT r.area_name,hs.vaccination_rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.vaccination_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #86...
-✅ Success! Returned 1 rows.
- person
-1416125
+❌ Query #86 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children>(hs.diabetes_p+hs.hypertension_p);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #87...
-✅ Success! Returned 2 rows.
-area_name   tot_m
-   Punjab 8395797
-  Haryana  653468
+❌ Query #87 Failed: (psycopg2.errors.UndefinedColumn) column hs.working_age_illness does not exist
+LINE 1: SELECT r.area_name,hs.working_age_illness FROM healthcare_st...
+                           ^
+
+[SQL: SELECT r.area_name,hs.working_age_illness FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY hs.working_age_illness DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #88...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Jharkhand' AND l.name = 'Santhali' AND t.name = 'Total';
+❌ Query #88 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate<70 AND hs.infant_mortality_rate<20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #89...
-✅ Success! Returned 1 rows.
- tot_p
- 62268
+❌ Query #89 Failed: (psycopg2.errors.UndefinedColumn) column hs.anaemia_female does not exist
+LINE 1: SELECT r.area_name,(hs.anaemia_female*100.0/NULLIF(hs.total_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.anaemia_female*100.0/NULLIF(hs.total_female,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #90...
-✅ Success! Returned 2 rows.
- female
-1172997
-1147671
+❌ Query #90 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_deaths does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.materna...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.maternal_deaths>hs.cancer_p;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #91...
-✅ Success! Returned 1 rows.
- area_name       literacy_rate
-Chandigarh 90.9693877551020408
+❌ Query #91 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,ABS((hs.diabetes_p+hs.hypertension_p)-(hs...
+                                ^
+
+[SQL: SELECT r.area_name,ABS((hs.diabetes_p+hs.hypertension_p)-(hs.elderly_with_illness)) AS drop FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY drop DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #92...
-✅ Success! Returned 2 rows.
- person
-6680837
-6486219
+❌ Query #92 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.obesity...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.obesity_p>hs.underweight_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #93...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    34.7810886843470898
+❌ Query #93 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children>100000 AND hs.diabetes_p>200000 AND hs.elderly_with_illness>100000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #94...
-✅ Success! Returned 2 rows.
- person
- 723748
- 558054
+❌ Query #94 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,GREATEST(hs.diabetes_p,hs.hypertension_p,...
+                                    ^
+
+[SQL: SELECT r.area_name,GREATEST(hs.diabetes_p,hs.hypertension_p,hs.asthma_p,hs.cancer_p) AS dominant FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY dominant DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #95...
-✅ Success! Returned 4 rows.
- name    person
-Rural 149936334
-Rural 123866244
-Urban  38042721
-Urban  36293733
+❌ Query #95 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)>500000 AND hs.infant_mortality_rate<25;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #96...
-✅ Success! Returned 2 rows.
- person
-1595038
-1592915
+❌ Query #96 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children<(hs.maternal_mortality_rate*100);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #97...
-✅ Success! Returned 1 rows.
- tot_p
-282898
+❌ Query #97 Failed: (psycopg2.errors.UndefinedColumn) column hs.tot_p does not exist
+LINE 1: SELECT r.area_name,ABS(hs.tot_p-(hs.vaccination_rate*10000))...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.tot_p-(hs.vaccination_rate*10000)) AS mismatch FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY mismatch DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #98...
-✅ Success! Returned 1 rows.
-  f_ill
-5239098
+❌ Query #98 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,ABS(hs.vaccination_rate-(100-hs.infant_mo...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.vaccination_rate-(100-hs.infant_mortality_rate)) AS weak_link FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY weak_link DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #99...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name, rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE rel.religion_name = 'Zoroastrian' AND t.name = 'Total' ORDER BY rs.tot_p DESC LIMIT 1;
+❌ Query #99 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,ABS(hs.underweight_children-(hs.working_a...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.underweight_children-(hs.working_age_illness+hs.elderly_with_illness)) AS imbalance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY imbalance DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #100...
-✅ Success! Returned 2 rows.
- person
-1382278
- 996733
+❌ Query #100 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT r.area_name,(hs.infant_deaths*1000.0/NULLIF(hs.live_b...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.infant_deaths*1000.0/NULLIF(hs.live_births,0)) AS risk FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY risk ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #101...
-✅ Success! Returned 1 rows.
-           sex_ratio
-965.5218014926537159
+❌ Query #101 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate>85 AND hs.infant_mortality_rate>30;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #102...
-✅ Success! Returned 2 rows.
- person
- 936496
- 930619
+❌ Query #102 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asth...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1.0/NULLIF(hs.tot_p,0)) AS load FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY load ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #103...
-✅ Success! Returned 2 rows.
- area_name   tot_p
-    Kerala 6141269
-Tamil Nadu 4418331
+❌ Query #103 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_female does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_female+hs.hypertension_female+hs.obesity_female)<(hs.diabetes_male+hs.hypertension_male+hs.obesity_male);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #104...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Mizoram' AND l.name = 'Mizo' AND t.name = 'Total';
+❌ Query #104 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p)<200000 AND hs.infant_mortality_rate>35;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #105...
-✅ Success! Returned 1 rows.
-      literacy_rate
-85.6744265932444298
+❌ Query #105 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ...CT r.area_name,(MAX(CASE WHEN t.name='Urban' THEN hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name,(MAX(CASE WHEN t.name='Urban' THEN hs.underweight_children END)-MAX(CASE WHEN t.name='Rural' THEN hs.underweight_children END)) AS diff FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY diff DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #106...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Tripura' AND l.name = 'Kokborok' AND t.name = 'Total';
+❌ Query #106 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children>200000 AND (hs.diabetes_p+hs.hypertension_p)<200000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #107...
-✅ Success! Returned 3 rows.
-    area_name   person
-        India 50772631
-        India 50725762
-Uttar Pradesh 10820232
+❌ Query #107 Failed: (psycopg2.errors.UndefinedColumn) column hs.obesity_p does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.obesity...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.obesity_p>hs.underweight_children;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #108...
-✅ Success! Returned 1 rows.
- tot_work_m
-    9217857
+❌ Query #108 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: SELECT r.area_name,(hs.elderly_with_illness*1.0/NULLIF(hs.el...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.elderly_with_illness*1.0/NULLIF(hs.elderly_population,0)) AS rate FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #109...
-✅ Success! Returned 2 rows.
- person
-2274342
-1154622
+❌ Query #109 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,ABS(hs.underweight_children-(hs.working_a...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.underweight_children-(hs.working_age_illness+hs.elderly_with_illness)) AS spread FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY spread ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #110...
-✅ Success! Returned 1 rows.
- tot_p
-440280
+❌ Query #110 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p+hs.asthma_p)>500000 AND hs.infant_mortality_rate<25;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #111...
-✅ Success! Returned 2 rows.
- person
-    419
-    419
+❌ Query #111 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children<100000 AND hs.maternal_mortality_rate>40;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #112...
-✅ Success! Returned 2 rows.
-  area_name   tot_f
-Maharashtra 3216294
-     Sikkim   81914
+❌ Query #112 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asth...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1.0/NULLIF(hs.tot_p,0)) AS loss FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY loss ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #113...
-✅ Success! Returned 2 rows.
- person
- 774057
- 745903
+❌ Query #113 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate>90 AND hs.underweight_children>150000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #114...
-✅ Success! Returned 1 rows.
-           lit_gap
-6.7093364196699839
+❌ Query #114 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate/NULLIF(hs.infant_mor...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate/NULLIF(hs.infant_mortality_rate,0)) AS return_score FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY return_score DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #115...
-✅ Success! Returned 2 rows.
- person
-3592208
-  46664
+❌ Query #115 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p)>400000 AND hs.underweight_children<80000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #116...
-✅ Success! Returned 1 rows.
-area_name  tot_work_p
-    India    11658513
+❌ Query #116 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_male does not exist
+LINE 1: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_mal...
+                                ^
+
+[SQL: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_male)-(hs.diabetes_female+hs.hypertension_female)) AS gap FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY gap ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #117...
-✅ Success! Returned 2 rows.
- person
-1164290
-1139697
+❌ Query #117 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabetes_p END)-SUM(CASE WHEN t.name='Rural' THEN hs.diabetes_p END)) AS delta FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY delta ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #118...
-✅ Success! Returned 1 rows.
- tot_p
-236340
+❌ Query #118 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_children) AS preventable FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY preventable DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #119...
-✅ Success! Returned 2 rows.
- person
- 952164
- 951014
+❌ Query #119 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate<75 AND hs.infant_mortality_rate<20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #120...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT t.name, ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Gujarat' AND l.name = 'Jain' AND t.name IN ('Rural', 'Urban') ORDER BY ls.person DESC;
+❌ Query #120 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children>200000 AND hs.infant_mortality_rate<25;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #121...
-✅ Success! Returned 2 rows.
- person
- 123488
- 123488
+❌ Query #121 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: SELECT r.area_name,((hs.elderly_with_illness-hs.working_age_...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.elderly_with_illness-hs.working_age_illness)*1.0/NULLIF(hs.elderly_population,0)) AS ageing_cost FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY ageing_cost ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #122...
-✅ Success! Returned 1 rows.
-           sex_ratio
-970.2519468123681335
+❌ Query #122 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate)) AS score FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY score DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #123...
-✅ Success! Returned 2 rows.
- person
- 994302
- 992197
+❌ Query #123 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,ABS(hs.underweight_children-hs.elderly_wi...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.underweight_children-hs.elderly_with_illness) AS inequality FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY inequality ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #124...
-✅ Success! Returned 1 rows.
-area_name       literacy_rate
-  Haryana 41.7630078895574236
+❌ Query #124 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children<70000 AND hs.elderly_with_illness>150000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #125...
-✅ Success! Returned 2 rows.
- person
- 939283
- 939177
+❌ Query #125 Failed: (psycopg2.errors.UndefinedColumn) column hs.maternal_mortality_rate does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.materna...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.maternal_mortality_rate>(hs.infant_mortality_rate*1.2);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #126...
-✅ Success! Returned 1 rows.
- tot_p
- 80984
+❌ Query #126 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(hs.diabetes_p+hs.hy...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(hs.diabetes_p+hs.hypertension_p)*1.0/NULLIF(hs.tot_p,0)) AS balance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY balance DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #127...
-✅ Success! Returned 2 rows.
- person
-1616730
-   2887
+❌ Query #127 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,(hs.underweight_children-(hs.diabetes_p+h...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.underweight_children-(hs.diabetes_p+hs.hypertension_p)) AS improvement FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY improvement DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #128...
-✅ Success! Returned 1 rows.
-   tot_m    tot_f
-31715046 31473122
+❌ Query #128 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: ... ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY (hs.vaccina...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY (hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate)) DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #129...
-✅ Success! Returned 1 rows.
- person
- 151565
+❌ Query #129 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_deaths does not exist
+LINE 1: SELECT r.area_name,(hs.infant_deaths+hs.maternal_deaths)*1.0...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.infant_deaths+hs.maternal_deaths)*1.0/NULLIF(hs.live_births,0) AS pressure FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY pressure ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #130...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    35.7481283373677596
+❌ Query #130 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p)*1.0/NULLIF(hs.tot_p,0) AS balance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY balance ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #131...
-✅ Success! Returned 2 rows.
- person
-  82712
-  82662
+❌ Query #131 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,ABS(hs.vaccination_rate-(100-hs.infant_mo...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.vaccination_rate-(100-hs.infant_mortality_rate)) AS link FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY link ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #132...
-✅ Success! Returned 1 rows.
-area_name  non_work_p
-    India     2870151
+❌ Query #132 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY (hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p) ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #133...
-✅ Success! Returned 2 rows.
- person
- 802763
- 797839
+❌ Query #133 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_children) FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY (hs.unvaccinated_children+hs.underweight_children) DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #134...
-✅ Success! Returned 1 rows.
-      literacy_rate
-68.0064779019956117
+❌ Query #134 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name,ABS(SUM(CASE WHEN t.name='Urban' THEN hs.diabetes_p+hs.hypertension_p END)-SUM(CASE WHEN t.name='Rural' THEN hs.diabetes_p+hs.hypertension_p END)) AS divide FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id GROUP BY r.area_name ORDER BY divide ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #135...
-✅ Success! Returned 2 rows.
- person
- 706304
- 706281
+❌ Query #135 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly_with_illness<hs.working_age_illness;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #136...
-✅ Success! Returned 2 rows.
-area_name   tot_f
-   Kerala 3147488
-      Goa  194166
+❌ Query #136 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p)>300000 AND hs.maternal_mortality_rate<20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #137...
-✅ Success! Returned 2 rows.
- person
- 470386
- 433018
+❌ Query #137 Failed: (psycopg2.errors.UndefinedColumn) column hs.infant_mortality_rate does not exist
+LINE 1: SELECT r.area_name,(hs.infant_mortality_rate+hs.maternal_mor...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.infant_mortality_rate+hs.maternal_mortality_rate) AS combined FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY combined ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #138...
-✅ Success! Returned 1 rows.
-   tot_p
-10679345
+❌ Query #138 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: ...tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabete...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND (hs.diabetes_p+hs.hypertension_p)>(hs.unvaccinated_children+hs.underweight_children);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #139...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Arunachal Pradesh' AND l.name = 'Nishi' AND t.name = 'Total';
+❌ Query #139 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,((hs.vaccination_rate-(hs.infant_mortalit...
+                             ^
+
+[SQL: SELECT r.area_name,((hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate))*1.0/NULLIF(hs.tot_p,0)) AS efficiency FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY efficiency DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #140...
-✅ Success! Returned 3 rows.
-  area_name  female
-      India  130563
-      India  130563
-Maharashtra   55456
+❌ Query #140 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underwe...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.underweight_children<80000 AND hs.maternal_mortality_rate<20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #141...
-✅ Success! Returned 2 rows.
- person
- 231084
- 114588
+❌ Query #141 Failed: (psycopg2.errors.UndefinedColumn) column hs.elderly_with_illness does not exist
+LINE 1: ... tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly...
+                                                             ^
+
+[SQL: SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.elderly_with_illness>200000;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #142...
-✅ Success! Returned 1 rows.
-           lit_gap
-7.8160541031131349
+❌ Query #142 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_male does not exist
+LINE 1: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_mal...
+                                ^
+
+[SQL: SELECT r.area_name,ABS((hs.diabetes_male+hs.hypertension_male+hs.obesity_male)-(hs.diabetes_female+hs.hypertension_female+hs.obesity_female))+ABS(hs.underweight_children-hs.elderly_with_illness) AS balance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY balance ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #143...
-✅ Success! Returned 2 rows.
- person
-   8268
-   8268
+❌ Query #143 Failed: (psycopg2.errors.UndefinedColumn) column hs.unvaccinated_children does not exist
+LINE 1: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.unvaccinated_children+hs.underweight_children+hs.infant_deaths) AS burden FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY burden DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #144...
-✅ Success! Returned 2 rows.
-     area_name   tot_p
-   Maharashtra 1400349
-Madhya Pradesh  567028
+❌ Query #144 Failed: (psycopg2.errors.UndefinedColumn) column hs.diabetes_p does not exist
+LINE 1: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthm...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.diabetes_p+hs.hypertension_p+hs.asthma_p+hs.cancer_p+hs.underweight_children+hs.elderly_with_illness) AS inequality FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY inequality DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #145...
-✅ Success! Returned 2 rows.
- person
- 151883
-  40008
+❌ Query #145 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate+hs.diabetes_p*1.0/NULLIF(hs.tot_p,0))) AS performance FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY performance DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #146...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Ladakh' AND rel.religion_name = 'Buddhist' AND t.name = 'Total';
+❌ Query #146 Failed: (psycopg2.errors.SyntaxError) trailing junk after numeric literal at or near "147.SELECT"
+LINE 1: ... WHERE t.name='Total' ORDER BY stress ASC LIMIT 1;147.SELECT...
+                                                             ^
+
+[SQL: SELECT r.area_name,(hs.infant_deaths+hs.maternal_deaths)*1.0/NULLIF(hs.live_births,0) AS stress FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY stress ASC LIMIT 1;147.SELECT r.area_name FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' AND hs.vaccination_rate>90 AND (hs.diabetes_p+hs.hypertension_p)>300000;SELECT r.area_name,((hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate))*100.0/NULLIF(hs.tot_p,0)) AS efficiency FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY efficiency DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #147...
-✅ Success! Returned 2 rows.
- person
- 177488
- 177488
+❌ Query #147 Failed: (psycopg2.errors.UndefinedColumn) column hs.underweight_children does not exist
+LINE 1: SELECT r.area_name,ABS(hs.underweight_children-hs.elderly_wi...
+                               ^
+
+[SQL: SELECT r.area_name,ABS(hs.underweight_children-hs.elderly_with_illness)+ABS((hs.diabetes_p+hs.hypertension_p)-(hs.obesity_p)) AS inequality FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY inequality ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #148...
-✅ Success! Returned 1 rows.
-religion_name  tot_work_p
-        Total    49427878
---------------------------------------------------
-🔹 Running Query #149...
-✅ Success! Returned 2 rows.
- person
- 223779
- 223171
---------------------------------------------------
-🔹 Running Query #150...
-✅ Success! Returned 1 rows.
-            sex_ratio
-1010.9432871842775777
+❌ Query #148 Failed: (psycopg2.errors.UndefinedColumn) column hs.vaccination_rate does not exist
+LINE 1: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality...
+                            ^
+
+[SQL: SELECT r.area_name,(hs.vaccination_rate-(hs.infant_mortality_rate+hs.maternal_mortality_rate))*1.0/NULLIF(hs.tot_p,0) AS sustainability FROM healthcare_stats hs JOIN regions r ON hs.state=r.state JOIN tru t ON hs.tru_id=t.id WHERE t.name='Total' ORDER BY sustainability DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
