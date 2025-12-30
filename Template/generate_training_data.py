@@ -7,7 +7,7 @@ import re
 # 🔧 CONFIGURATION
 # ==========================================
 SCHEMA_FILE = "database_schema.json"  # Your schema file
-QUESTIONS_FILE = "health_questions_gopikha.txt"      # File containing list of questions
+QUESTIONS_FILE = "health_question_gopikha.txt"      # File containing list of questions
 SQL_FILE = "health_queries_gopikha.sql"             # File containing list of SQL queries
 OUTPUT_DIR = "training_data"
 
