@@ -1,653 +1,324 @@
-📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenSQL\Template\output.txt
+📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenQuery\Template\output.txt
 🚀 Connecting to Database...
-📋 Found 111 queries. Starting verification...
+📋 Found 40 queries. Starting verification...
 
 🔹 Running Query #1...
-✅ Success! Returned 1 rows.
-                               area_name  rate
-Dadra and Nagar Haveli and Daman and Diu 94.88
+❌ Query #1 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY anaemia_female D...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY anaemia_female DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #2...
-✅ Success! Returned 3 rows.
- name       avg
-Total 54.063889
-Rural 51.753889
-Urban 52.286111
+❌ Query #2 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_male" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY anaemia_male ASC...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY anaemia_male ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #3...
-✅ Success! Returned 5 rows.
-                area_name  infant_mortality_rate_per_1000_live_births
-Andaman & Nicobar Islands                                      -20.64
-                      Goa                                       -5.63
-              Lakshadweep                                       -0.01
-               Puducherry                                        2.92
-                   Kerala                                        4.42
+❌ Query #3 Failed: (psycopg2.errors.UndefinedColumn) column "vaccination_rate" does not exist
+LINE 1: SELECT AVG(vaccination_rate) FROM healthcare_stats;
+                   ^
+
+[SQL: SELECT AVG(vaccination_rate) FROM healthcare_stats;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #4...
-✅ Success! Returned 3 rows.
- name       avg
-Total 24.899714
-Rural 26.624194
-Urban 18.039655
+❌ Query #4 Failed: (psycopg2.errors.UndefinedColumn) column "vaccination_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE vaccination_rate < ...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE vaccination_rate < 70;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #5...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
+❌ Query #5 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY obesity_rate DES...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY obesity_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #6...
-✅ Success! Returned 1 rows.
- area_name   gap
-Chandigarh 52.22
+❌ Query #6 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY obesity_rate ASC...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY obesity_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #7...
-✅ Success! Returned 3 rows.
- area_name  women_age_3049_years_ever_undergone_a_screening_test_for_cer
-Tamil Nadu                                                          9.78
-Puducherry                                                          7.40
-   Mizoram                                                          6.87
+❌ Query #7 Failed: (psycopg2.errors.UndefinedColumn) column "diabetes_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE diabetes_rate > 10;
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE diabetes_rate > 10;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #8...
-✅ Success! Returned 3 rows.
- name       avg
-Total 27.702500
-Rural 24.287143
-Urban 33.796111
+❌ Query #8 Failed: (psycopg2.errors.UndefinedColumn) column "diabetes_rate" does not exist
+LINE 1: SELECT AVG(diabetes_rate) FROM healthcare_stats WHERE area_t...
+                   ^
+
+[SQL: SELECT AVG(diabetes_rate) FROM healthcare_stats WHERE area_type='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #9...
-✅ Success! Returned 1 rows.
-  area_name  children_age_1223_months_fully_vaccinated_based_on_informati
-Lakshadweep                                                        -86.14
+❌ Query #9 Failed: (psycopg2.errors.UndefinedColumn) column "diabetes_rate" does not exist
+LINE 1: SELECT AVG(diabetes_rate) FROM healthcare_stats WHERE area_t...
+                   ^
+
+[SQL: SELECT AVG(diabetes_rate) FROM healthcare_stats WHERE area_type='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #10...
-✅ Success! Returned 1 rows.
-area_name  total
-   Sikkim  76.11
+❌ Query #10 Failed: (psycopg2.errors.UndefinedColumn) column "asthma_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY asthma_rate DESC...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY asthma_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #11...
-✅ Success! Returned 1 rows.
- ?column?
-    38.25
+❌ Query #11 Failed: (psycopg2.errors.UndefinedColumn) column "asthma_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE asthma_rate < 5;
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE asthma_rate < 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #12...
-✅ Success! Returned 1 rows.
- all_women_15_49_who_are_anaemic22_
-                              36.34
+❌ Query #12 Failed: (psycopg2.errors.UndefinedColumn) column "hypertension_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY hypertension_rat...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY hypertension_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #13...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT h.children_age_1223_months_fully_vaccinated_based_on_informati FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE r.area_name='Maharashtra' AND t.name='Urban';
+❌ Query #13 Failed: (psycopg2.errors.UndefinedColumn) column "hypertension_rate" does not exist
+LINE 1: SELECT AVG(hypertension_rate) FROM healthcare_stats;
+                   ^
+
+[SQL: SELECT AVG(hypertension_rate) FROM healthcare_stats;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #14...
-✅ Success! Returned 1 rows.
- children_prevalence_of_symptoms_of_acute_respiratory_infecti
-                                                         2.53
+❌ Query #14 Failed: (psycopg2.errors.UndefinedColumn) column "hypertension_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE hypertension_rate >...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE hypertension_rate > (SELECT AVG(hypertension_rate) FROM healthcare_stats);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #15...
-✅ Success! Returned 1 rows.
- infant_mortality_rate_per_1000_live_births
-                                      43.47
+❌ Query #15 Failed: (psycopg2.errors.UndefinedColumn) column "cancer_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY cancer_rate DESC...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY cancer_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #16...
-✅ Success! Returned 1 rows.
- women_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm
-                                                        20.58
+❌ Query #16 Failed: (psycopg2.errors.UndefinedColumn) column "cancer_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE cancer_rate < 1;
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE cancer_rate < 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #17...
-✅ Success! Returned 1 rows.
- children_age_1223_months_who_received_most_of_their_vaccinat
-                                                        99.13
+❌ Query #17 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT AVG(anaemia_female) FROM healthcare_stats WHERE area_...
+                   ^
+
+[SQL: SELECT AVG(anaemia_female) FROM healthcare_stats WHERE area_type='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #18...
-✅ Success! Returned 1 rows.
- women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_
-                                                        14.74
+❌ Query #18 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT AVG(anaemia_female) FROM healthcare_stats WHERE area_...
+                   ^
+
+[SQL: SELECT AVG(anaemia_female) FROM healthcare_stats WHERE area_type='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #19...
-✅ Success! Returned 1 rows.
- institutional_births_in_the_5_years_before_the_survey_
-                                                  97.79
+❌ Query #19 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_male" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE anaemia_male > anae...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE anaemia_male > anaemia_female;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #20...
-✅ Success! Returned 1 rows.
- children_under_5_years_who_are_underweight_weightforage18_
-                                                      41.03
+❌ Query #20 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY ABS(anaemia_fema...
+                                                        ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY ABS(anaemia_female - anaemia_male) DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #21...
-✅ Success! Returned 1 rows.
- women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_
-                                                        24.82
+❌ Query #21 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE obesity_rate > diab...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE obesity_rate > diabetes_rate;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #22...
-✅ Success! Returned 3 rows.
- name   avg
-Rural 52.37
-Total 54.94
-Urban 57.88
+❌ Query #22 Failed: (psycopg2.errors.UndefinedColumn) column "vaccination_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY vaccination_rate...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY vaccination_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #23...
-✅ Success! Returned 1 rows.
- area_name
-Chandigarh
+❌ Query #23 Failed: (psycopg2.errors.UndefinedColumn) column "vaccination_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE vaccination_rate > ...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE vaccination_rate > 90;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #24...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT h.all_women_15_49_who_are_anaemic22_ FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE r.area_name='Maharashtra' AND t.name='Total';
+❌ Query #24 Failed: (psycopg2.errors.UndefinedColumn) column "asthma_rate" does not exist
+LINE 1: SELECT AVG(asthma_rate) FROM healthcare_stats WHERE area_typ...
+                   ^
+
+[SQL: SELECT AVG(asthma_rate) FROM healthcare_stats WHERE area_type='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #25...
-✅ Success! Returned 36 rows.
-                               area_name  children_under_5_years_who_are_underweight_weightforage18_
-                                   Bihar                                                       41.03
-                                 Gujarat                                                       39.68
-                               Jharkhand                                                       39.40
-Dadra and Nagar Haveli and Daman and Diu                                                       38.70
-                          Madhya Pradesh                                                       33.00
+❌ Query #25 Failed: (psycopg2.errors.UndefinedColumn) column "asthma_rate" does not exist
+LINE 1: SELECT AVG(asthma_rate) FROM healthcare_stats WHERE area_typ...
+                   ^
+
+[SQL: SELECT AVG(asthma_rate) FROM healthcare_stats WHERE area_type='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #26...
-✅ Success! Returned 1 rows.
- children_age_1223_months_fully_vaccinated_based_on_informati
-                                                         71.6
+❌ Query #26 Failed: (psycopg2.errors.UndefinedColumn) column "maternal_mortality_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY maternal_mortali...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY maternal_mortality_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #27...
-✅ Success! Returned 1 rows.
-area_name
-   Kerala
+❌ Query #27 Failed: (psycopg2.errors.UndefinedColumn) column "maternal_mortality_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE maternal_mortality_...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE maternal_mortality_rate > 100;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #28...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT h.children_prevalence_of_symptoms_of_acute_respiratory_infecti FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE r.area_name='Delhi' AND t.name='Urban';
+❌ Query #28 Failed: (psycopg2.errors.UndefinedColumn) column "maternal_mortality_rate" does not exist
+LINE 1: SELECT AVG(maternal_mortality_rate) FROM healthcare_stats;
+                   ^
+
+[SQL: SELECT AVG(maternal_mortality_rate) FROM healthcare_stats;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #29...
-✅ Success! Returned 3 rows.
- name       avg
-Total 27.702500
-Rural 24.287143
-Urban 33.796111
+❌ Query #29 Failed: (psycopg2.errors.UndefinedColumn) column "maternal_mortality_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY maternal_mortali...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY maternal_mortality_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #30...
-✅ Success! Returned 3 rows.
- area_name  women_age_3049_years_ever_undergone_a_screening_test_for_cer
-Tamil Nadu                                                          9.78
-Puducherry                                                          7.40
-   Mizoram                                                          6.87
+❌ Query #30 Failed: (psycopg2.errors.UndefinedColumn) column h1.area_type does not exist
+LINE 1: ... DISTINCT h1.state FROM healthcare_stats h1 WHERE h1.area_ty...
+                                                             ^
+
+[SQL: SELECT DISTINCT h1.state FROM healthcare_stats h1 WHERE h1.area_type='Rural' AND h1.hypertension_rate > (SELECT h2.hypertension_rate FROM healthcare_stats h2 WHERE h2.state=h1.state AND h2.area_type='Urban');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #31...
-✅ Success! Returned 11 rows.
-                area_name
-Andaman & Nicobar Islands
-               Chandigarh
-               Chandigarh
-                      Goa
-                      Goa
+❌ Query #31 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY (anaemia_female ...
+                                                     ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY (anaemia_female + anaemia_male) DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #32...
-✅ Success! Returned 1 rows.
- area_name    share
-Chandigarh 0.881837
+❌ Query #32 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE obesity_rate < 5;
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE obesity_rate < 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #33...
-✅ Success! Returned 32 rows.
-                area_name
-Andaman & Nicobar Islands
-Andaman & Nicobar Islands
-           Andhra Pradesh
-           Andhra Pradesh
-           Andhra Pradesh
+❌ Query #33 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT AVG(obesity_rate) FROM healthcare_stats WHERE area_ty...
+                   ^
+
+[SQL: SELECT AVG(obesity_rate) FROM healthcare_stats WHERE area_type='Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #34...
-✅ Success! Returned 1 rows.
- area_name  gap
-Chandigarh None
+❌ Query #34 Failed: (psycopg2.errors.UndefinedColumn) column "obesity_rate" does not exist
+LINE 1: SELECT AVG(obesity_rate) FROM healthcare_stats WHERE area_ty...
+                   ^
+
+[SQL: SELECT AVG(obesity_rate) FROM healthcare_stats WHERE area_type='Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #35...
-✅ Success! Returned 3 rows.
- name       avg
-Urban 63.061765
-Rural 80.245588
-Total 84.502778
+❌ Query #35 Failed: (psycopg2.errors.UndefinedColumn) column "diabetes_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE diabetes_rate < ast...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE diabetes_rate < asthma_rate;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #36...
-✅ Success! Returned 5 rows.
-  area_name  institutional_births_in_the_5_years_before_the_survey_
-     Kerala                                                   99.76
-        Goa                                                   99.73
-Lakshadweep                                                   99.61
- Tamil Nadu                                                   99.59
- Puducherry                                                   99.57
+❌ Query #36 Failed: (psycopg2.errors.UndefinedColumn) column "area_type" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE area_type='Rural' O...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE area_type='Rural' ORDER BY vaccination_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #37...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
+❌ Query #37 Failed: (psycopg2.errors.UndefinedColumn) column "area_type" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE area_type='Urban' O...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE area_type='Urban' ORDER BY vaccination_rate DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #38...
-✅ Success! Returned 1 rows.
-area_name  children_under_5_years_who_are_underweight_weightforage18_
-  Mizoram                                                       12.66
+❌ Query #38 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_female" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE anaemia_female > 50...
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE anaemia_female > 50;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #39...
-✅ Success! Returned 1 rows.
-area_name   gap
- Nagaland 35.36
+❌ Query #39 Failed: (psycopg2.errors.UndefinedColumn) column "anaemia_male" does not exist
+LINE 1: SELECT state FROM healthcare_stats WHERE anaemia_male < 20;
+                                                 ^
+
+[SQL: SELECT state FROM healthcare_stats WHERE anaemia_male < 20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #40...
-✅ Success! Returned 1 rows.
-area_name  burden
-   Kerala  115.48
---------------------------------------------------
-🔹 Running Query #41...
-✅ Success! Returned 3 rows.
- name       avg
-Total 24.899714
-Rural 26.624194
-Urban 18.039655
---------------------------------------------------
-🔹 Running Query #42...
-✅ Success! Returned 1 rows.
- area_name survival
-Chandigarh     None
---------------------------------------------------
-🔹 Running Query #43...
-✅ Success! Returned 21 rows.
-                               area_name
-Dadra and Nagar Haveli and Daman and Diu
-                               Jharkhand
-                                   Bihar
-                                  Punjab
-                        Himachal Pradesh
---------------------------------------------------
-🔹 Running Query #44...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #45...
-✅ Success! Returned 2 rows.
-  area_name
- Chandigarh
-Lakshadweep
---------------------------------------------------
-🔹 Running Query #46...
-✅ Success! Returned 3 rows.
- name       avg
-Total 26.016389
-Rural 27.048286
-Urban 22.667500
---------------------------------------------------
-🔹 Running Query #47...
-✅ Success! Returned 1 rows.
-area_name  female_burden
-   Ladakh         121.01
---------------------------------------------------
-🔹 Running Query #48...
-✅ Success! Returned 94 rows.
-                area_name
-                    India
-                    India
-                    India
-Andaman & Nicobar Islands
-Andaman & Nicobar Islands
---------------------------------------------------
-🔹 Running Query #49...
-✅ Success! Returned 1 rows.
-area_name  balance
-   Ladakh    17.14
---------------------------------------------------
-🔹 Running Query #50...
-✅ Success! Returned 34 rows.
-                               area_name
-Dadra and Nagar Haveli and Daman and Diu
-                             Uttarakhand
-                               Rajasthan
-                               Jharkhand
-                             Lakshadweep
---------------------------------------------------
-🔹 Running Query #51...
-✅ Success! Returned 1 rows.
- area_name newborn_survival
-Chandigarh             None
---------------------------------------------------
-🔹 Running Query #52...
-✅ Success! Returned 22 rows.
-                               area_name
-               Andaman & Nicobar Islands
-                          Andhra Pradesh
-                              Chandigarh
-Dadra and Nagar Haveli and Daman and Diu
-                                     Goa
---------------------------------------------------
-🔹 Running Query #53...
-✅ Success! Returned 1 rows.
-area_name  load
-   Ladakh 14.96
---------------------------------------------------
-🔹 Running Query #54...
-✅ Success! Returned 1 rows.
-area_name  diff
-   Kerala  0.02
---------------------------------------------------
-🔹 Running Query #55...
-✅ Success! Returned 1 rows.
-area_name   risk
-    Bihar 137.63
---------------------------------------------------
-🔹 Running Query #56...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name,h.children_age_1223_months_fully_vaccinated_based_on_informati FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.children_age_1223_months_fully_vaccinated_based_on_informati AS DOUBLE PRECISION)>95 AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #57...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_>h.women_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #58...
-✅ Success! Returned 1 rows.
-                area_name    ratio
-Andaman & Nicobar Islands -0.02064
---------------------------------------------------
-🔹 Running Query #59...
-✅ Success! Returned 1 rows.
- case
-Women
---------------------------------------------------
-🔹 Running Query #60...
-✅ Success! Returned 2 rows.
-area_name
-      Goa
-   Ladakh
---------------------------------------------------
-🔹 Running Query #61...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.institutional_births_in_the_5_years_before_the_survey_ AS DOUBLE PRECISION) < CAST(h.infant_mortality_rate_per_1000_live_births AS DOUBLE PRECISION) AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #62...
-✅ Success! Returned 1 rows.
- area_name score
-Chandigarh  None
---------------------------------------------------
-🔹 Running Query #63...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.institutional_births_in_the_5_years_before_the_survey_ AS DOUBLE PRECISION) < CAST(h.children_under_5_years_who_are_underweight_weightforage18_ AS DOUBLE PRECISION) AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #64...
-✅ Success! Returned 1 rows.
-area_name  imbalance
- Nagaland      12.65
---------------------------------------------------
-🔹 Running Query #65...
-✅ Success! Returned 2 rows.
-                               area_name
-Dadra and Nagar Haveli and Daman and Diu
-                                  Odisha
---------------------------------------------------
-🔹 Running Query #66...
-✅ Success! Returned 1 rows.
- area_name    gap
-Chandigarh 124.25
---------------------------------------------------
-🔹 Running Query #67...
-✅ Success! Returned 1 rows.
- area_name score
-Chandigarh  None
---------------------------------------------------
-🔹 Running Query #68...
-✅ Success! Returned 1 rows.
-                area_name      rate
-Andaman & Nicobar Islands -0.002064
---------------------------------------------------
-🔹 Running Query #69...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_>h.women_age_15_years_and_above_wih_elevated_blood_pressure_sys AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #70...
-✅ Success! Returned 1 rows.
-  area_name  children_age_1223_months_fully_vaccinated_based_on_informati
-Lakshadweep                                                        -86.14
---------------------------------------------------
-🔹 Running Query #71...
-✅ Success! Returned 15 rows.
-                               area_name
-                                   India
-                                   Assam
-                                   Bihar
-                            Chhattisgarh
-Dadra and Nagar Haveli and Daman and Diu
---------------------------------------------------
-🔹 Running Query #72...
-✅ Success! Returned 1 rows.
-area_name  working_burden
-   Kerala           51.84
---------------------------------------------------
-🔹 Running Query #73...
-✅ Success! Returned 2 rows.
-        area_name
-Arunachal Pradesh
-      Lakshadweep
---------------------------------------------------
-🔹 Running Query #74...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #75...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #76...
-✅ Success! Returned 1 rows.
-area_name  score
-   Ladakh  67.86
---------------------------------------------------
-🔹 Running Query #77...
-✅ Success! Returned 1 rows.
- area_name imbalance
-Chandigarh      None
---------------------------------------------------
-🔹 Running Query #78...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_ AS DOUBLE PRECISION)>CAST(h.women_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm AS DOUBLE PRECISION) AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #79...
-✅ Success! Returned 1 rows.
- area_name efficiency
-Chandigarh       None
---------------------------------------------------
-🔹 Running Query #80...
-✅ Success! Returned 4 rows.
- area_name
-    Kerala
-   Manipur
-   Mizoram
-Puducherry
---------------------------------------------------
-🔹 Running Query #81...
-✅ Success! Returned 2 rows.
-  area_name
- Chandigarh
-Lakshadweep
---------------------------------------------------
-🔹 Running Query #82...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name,(CAST(h.children_age_1223_months_fully_vaccinated_based_on_informati AS DOUBLE PRECISION)) FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.children_age_1223_months_fully_vaccinated_based_on_informati AS DOUBLE PRECISION)>95 AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #83...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE CAST(h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_ AS DOUBLE PRECISION)>CAST(h.women_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm AS DOUBLE PRECISION) AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #84...
-✅ Success! Returned 1 rows.
- case
-Women
---------------------------------------------------
-🔹 Running Query #85...
-✅ Success! Returned 30 rows.
-                               area_name
-Dadra and Nagar Haveli and Daman and Diu
-                               Rajasthan
-                               Jharkhand
-                                   Bihar
-                                 Gujarat
---------------------------------------------------
-🔹 Running Query #86...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.infant_mortality_rate_per_1000_live_births>h.institutional_births_in_the_5_years_before_the_survey_ AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #87...
-✅ Success! Returned 1 rows.
-  area_name   drop
-Lakshadweep 111.92
---------------------------------------------------
-🔹 Running Query #88...
-✅ Success! Returned 1 rows.
-  area_name  ?column?
-West Bengal      38.8
---------------------------------------------------
-🔹 Running Query #89...
-✅ Success! Returned 9 rows.
-        area_name
-Arunachal Pradesh
-            Assam
-       Chandigarh
-      Lakshadweep
-          Manipur
---------------------------------------------------
-🔹 Running Query #90...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #91...
-✅ Success! Returned 1 rows.
-area_name   gap
-   Ladakh 17.14
---------------------------------------------------
-🔹 Running Query #92...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id GROUP BY r.area_name HAVING AVG(CASE WHEN t.name='Urban' THEN h.children_age_1223_months_fully_vaccinated_based_on_informati END)=AVG(CASE WHEN t.name='Rural' THEN h.children_age_1223_months_fully_vaccinated_based_on_informati END);
---------------------------------------------------
-🔹 Running Query #93...
-✅ Success! Returned 1 rows.
-area_name  preventable
-    Bihar       137.63
---------------------------------------------------
-🔹 Running Query #94...
-✅ Success! Returned 2 rows.
-        area_name
-Arunachal Pradesh
-      Lakshadweep
---------------------------------------------------
-🔹 Running Query #95...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.children_under_5_years_who_are_underweight_weightforage18_>200000 AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #96...
-✅ Success! Returned 1 rows.
- area_name score
-Chandigarh  None
---------------------------------------------------
-🔹 Running Query #97...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #98...
-✅ Success! Returned 1 rows.
-area_name  combined
- Nagaland     69.11
---------------------------------------------------
-🔹 Running Query #99...
-✅ Success! Returned 1 rows.
-area_name  balance
-   Ladakh    81.53
---------------------------------------------------
-🔹 Running Query #100...
-✅ Success! Returned 1 rows.
-area_name  improvement
-Jharkhand        29.21
---------------------------------------------------
-🔹 Running Query #101...
-✅ Success! Returned 1 rows.
-                area_name
-Andaman & Nicobar Islands
---------------------------------------------------
-🔹 Running Query #102...
-✅ Success! Returned 1 rows.
-   area_name  link
-NCT of Delhi  0.46
---------------------------------------------------
-🔹 Running Query #103...
-✅ Success! Returned 1 rows.
-                area_name  ?column?
-Andaman & Nicobar Islands      35.4
---------------------------------------------------
-🔹 Running Query #104...
-✅ Success! Returned 1 rows.
-  area_name  ?column?
-West Bengal    128.53
---------------------------------------------------
-🔹 Running Query #105...
-✅ Success! Returned 1 rows.
-area_name  divide
-   Kerala    0.02
---------------------------------------------------
-🔹 Running Query #106...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_>300000 AND t.name='Total';
---------------------------------------------------
-🔹 Running Query #107...
-✅ Success! Returned 1 rows.
-area_name  combined
- Nagaland     69.11
---------------------------------------------------
-🔹 Running Query #108...
-✅ Success! Returned 2 rows.
-  area_name
- Chandigarh
-Lakshadweep
---------------------------------------------------
-🔹 Running Query #109...
-✅ Success! Returned 36 rows.
-                area_name
-                    India
-Andaman & Nicobar Islands
-           Andhra Pradesh
-        Arunachal Pradesh
-                    Assam
---------------------------------------------------
-🔹 Running Query #110...
-✅ Success! Returned 1 rows.
- area_name burden
-Chandigarh   None
---------------------------------------------------
-🔹 Running Query #111...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state=r.state JOIN tru t ON h.tru_id=t.id WHERE h.children_age_1223_months_fully_vaccinated_based_on_informati>90 AND h.women_age_15_years_and_above_wih_high_or_very_high_140_mgdl_>300000 AND t.name='Total';
+❌ Query #40 Failed: (psycopg2.errors.UndefinedColumn) column "cancer_rate" does not exist
+LINE 1: SELECT state FROM healthcare_stats ORDER BY cancer_rate ASC ...
+                                                    ^
+
+[SQL: SELECT state FROM healthcare_stats ORDER BY cancer_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
