@@ -24,8 +24,8 @@ class DualLogger:
         self.log.flush()
 
 # Force UTF-8 on the terminal first (for emojis)
-sys.stdout.reconfigure(encoding='utf-8')
-sys.stderr.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8')  # type: ignore
+sys.stderr.reconfigure(encoding='utf-8')  # type: ignore
 
 # Redirect stdout and stderr to our DualLogger
 # This captures all print() statements and errors
@@ -59,7 +59,7 @@ def verify_queries():
     print("🚀 Connecting to Database...")
     
     try:
-        engine = create_engine(DB_CONNECTION_STRING)
+        engine = create_engine(DB_CONNECTION_STRING)  # type: ignore
         queries = load_queries(SQL_FILE)
 
         if not queries:
@@ -94,6 +94,7 @@ def verify_queries():
                 except Exception as q_err:
                     print(f"❌ Query #{index} Failed: {q_err}")
                     conn.rollback()
+                
                 print("-" * 50)
 
     except Exception as e:
